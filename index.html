@@ -16,6 +16,9 @@
             font-family: 'Noto Sans TC', sans-serif;
         }
 
+        .fw-900 {
+            font-weight: 900;
+        }
         .fw-700 {
             font-weight: 700;
         }
@@ -37,11 +40,59 @@
             border-radius: 15px;
             box-shadow: 2px 2px 8px 2px #4c4c4c;
         }
+        .text-caption{
+            background-color: rgba(0, 0, 0, 0.4);
+            border-radius: 15px;
+            /* box-shadow: 2px 2px 8px 2px #4c4c4c; */
+            height: auto;
+            color: white;
+        }
+
+
         .s09_text{
             background-color: rgba(0, 0, 0, 0.4);
             margin: 5px;
             color: white;
         }
+        .timeline-section{
+            position: relative;
+            
+        }
+        .timeline-section::before{
+            position: absolute;
+            content: "";
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            /* 漸層色  漸層要視為圖片看待 */
+            background-image: linear-gradient(180deg, rgba(213, 191, 191, 0.1), rgba(43, 32, 32, 0.9));
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        /* 時間軸圓點 */
+        .timeline-section-pointer{
+            position: relative;
+        }
+        .timeline-section-pointer::before{
+            position: absolute;
+            content: "";
+            top: 50%;
+            width: 20px;
+            height: 20px;
+            background-color: #fff;
+            border: 7px solid #ccc;
+            border-radius: 50%;
+            left: 50%;
+            /* 轉變X軸位置 以自身的寬度比例 往左推移 */
+            transform: translateX(-50%);
+        }
+        /* ::before偽元素 */
+        .timeline-section-pointer:hover::before{
+            width: 30px;
+            height: 30px;
+            border: 10px solid #d873bb;
+        }
+
         @media screen and (max-width: 768px) {
             .s05_text, 
             .s07_text{
@@ -59,6 +110,12 @@
             .s07_img{
                 left: 0;
             }
+            .timeline-section::before,
+            .timeline-section-pointer::before{
+                /* none不顯示 */
+                display: none;
+            }
+            
         }
     </style>
 </head>
@@ -119,7 +176,7 @@
                         <form class="d-flex" role="search">
                             <a href="#" class="btn btn-warning me-1" data-bs-toggle="modal"
                                 data-bs-target="#loginModal">登入</a>
-                            <a href="#" class="btn btn-warning" data-bs-toggle="modal"
+                            <a href="#" class="btn btn-light" data-bs-toggle="modal"
                                 data-bs-target="#registerModal">註冊</a>
                         </form>
                     </div>
@@ -247,14 +304,14 @@
                 </div>
                 <div class="carousel-item bg-cover" style="background-image: url(images/photo04.jpg); height: 600px;">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3 class="fw-700">Third slide label</h3>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <h3 class="fw-700">暢飲嘉年華</h3>
+                        <p>包廂歡唱搭配酒類專案</p>
                     </div>
                 </div>
                 <div class="carousel-item bg-cover" style="background-image: url(images/photo05.jpg); height: 600px;">
                     <div class="carousel-caption d-none d-md-block">
-                        <h3 class="fw-700">Third slide label</h3>
-                        <p>Some representative placeholder content for the third slide.</p>
+                        <h3 class="fw-700">單人包廂</h3>
+                        <p>滿足你蠢蠢欲動的歌喉</p>
                     </div>
                 </div>
             </div>
@@ -271,6 +328,103 @@
         </div>
     </section>
 
+    <!-- section11 counterup -->
+    <section style="position: relative;">
+        <!-- position定位 -->
+        <div class="row">
+            <div class="col-md-5 bg-cover s05_img" style="position: absolute;
+            top: 0;
+            bottom: 0;
+            background-image: url(images/07.jpg);
+            height: auto;"></div>
+        </div>
+        <div class="container">
+            <div class="row justify-content-end">
+                <div class="col-md-7 s05_text">
+                    <h2 class="my-3 fw-900">關於我們</h2>
+                    <h4 class="col-7 fw-300">
+                        購買長期，委託印象上升的是承擔服裝商業天下贏得信箱創業，各地課程才能魔獸其他的新人青草湖，家園確定，暴力網頁班兩位審核定義，來自檢查答應總是二手上帝添加並在法律責任，理念凱文衛生上來猶豫昨天列表古代高雄讀書鼓勵怎麼，聲明這樣相關圖片男性看不到，電器難以如。
+                    </h4>
+                    
+                    <div class="row my-3">
+                        <div class="col-md-4">
+                            <p class="my-3 fw-900">員工人數</p>
+                            <h3 class="fw-700 counter01">2000<span>/人</span></h3>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="my-3 fw-900">分店總數</p>
+                            <h3 class="fw-700 counter02">66<span>/間</span></h3>
+                        </div>
+                        <div class="col-md-4">
+                            <p class="my-3 fw-900">月到訪人次</p>
+                            <h3 class="fw-700 counter03">87萬<span>/人次</span></h3>
+
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- 時間軸 -->
+    <section>
+        <div class="bg-cover" style="background-image: url(images/03.jpg); height: auto;">
+          
+            <div class="container p-5">
+                <div class="row offset-5 col-7">
+                    <div class="timeline-section">
+                        <!-- 在class="row"的元素不用再加上d-flex 可直接套用flexbox-->
+                        <div class="row align-items-center timeline-section-pointer">
+                            <div class="col-md-6 text-center">
+                                <div class="mytext text-caption">
+                                    <h2 class="fw-900">核准設立第一間KTV</h2>
+                                    <p class="fw-700">並不其他的他的甚至美元可見那樣其它，到達主要代理心情，返回相機把我全球備案像素迅速所有人到達草魚確附近解決方案提升，吃了人群立即教育活動複雜，鄉民居然人員請您政治，忍不住，符合。</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="myimg bg-cover" style="background-image: url(images/01.jpg); height: 280px;"></div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                            <div class="col-md-6 text-center">
+                                <div class="mytext text-caption">
+                                    <h2 class="fw-900">連鎖規模達到30家</h2>
+                                    <p class="fw-700">並不其他的他的甚至美元可見那樣其它，到達主要代理心情，返回相機把我全球備案像素迅速所有人到達草魚可以說在我瞭提升，吃了人群立即教育活動複雜，鄉民居然人員請您政治，忍不住，符合。</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="myimg bg-cover" style="background-image: url(images/02.jpg); height: 280px;"></div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center timeline-section-pointer">
+                            <div class="col-md-6 text-center">
+                                <div class="mytext text-caption">
+                                    <h2 class="fw-900">啟用手機APP功能</h2>
+                                    <p class="fw-700">並不其他的他的甚至美元可見那樣其它，到達主要代理心情，返回相機把我全球備案像素迅速所有人到達草魚吃了人群立即教育活動複雜，鄉民居然人員請您政治，忍不住，符合。</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="myimg bg-cover" style="background-image: url(images/photo01.jpg); height: 280px;"></div>
+                            </div>
+                        </div>
+                        <div class="row align-items-center flex-row-reverse timeline-section-pointer">
+                            <div class="col-md-6 text-center ">
+                                <div class="mytext text-caption">
+                                    <h2 class="fw-900">公司成立時間序介紹</h2>
+                                    <p class="fw-700">並不其他的他的甚至美元可見那樣其它，到達主要代理心情，返回相機把我全球備案像素迅速所有人到達草魚可以說在我瞭解，發貼的確附近解決方案提升</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="myimg bg-cover" style="background-image: url(images/photo02.jpg); height: 280px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- section04 三大服務項目 1.包廂歡唱 2.派對包場 3.會員優惠 -->
     <section class="bg-secondary">
         <div class="container">
@@ -309,14 +463,14 @@
             top: 0;
             bottom: 0;
             background-image: url(images/01.jpg);
-            height: 400px;"></div>
+            height: auto;"></div>
         </div>
         <div class="container">
             <div class="row justify-content-end">
                 <div class="col-md-7 s05_text">
-                    <h2 class="my-3 fw-700">會員專區</h2>
+                    <h2 class="my-3 fw-700">會員優惠</h2>
                     <p class="fw-300">
-                        購買長期，委託印象上升的是承擔服裝商業天下贏得信箱創業，各地課程才能魔獸其他的新人青草湖，家園確定，暴力網頁班兩位審核定義，來自檢查答應總是二手上帝添加並在法律責任，理念凱文衛生上來猶豫昨天列表古代高雄讀書鼓勵怎麼，聲明這樣相關圖片男性看不到，電器難以如。
+                        本公司以歡樂、健康、安全為訴求，致力為學生、社區住戶與上班族提供健康、超值、歡樂的娛樂服務。
                     </p>
                     <a href="" class="btn btn-outline-primary">查看更多</a>
                     <!-- btn-outline-primary 空心按鈕 -->
@@ -340,27 +494,27 @@
     <!-- section06 部門介紹 -->
     <section>
         <div class="container">
-            <div class="display-3 text-center fw-900">門市查詢</div>
+            <div class="display-3 text-center fw-700">包廂簡介</div>
             <div class="row">
                 <div class="col-md-6">
                     <div class="d-flex align-items-center">
                         <div>
-                            <i class="fa-regular fa-handshake fa-5x me-3 text-danger"></i>
+                            <i class="fa-solid fa-users fa-5x me-3 text-danger"></i>
                         </div>
                         <div>
-                            <h3>北部</h3>
-                            <p>說什麼投入對方，喜愛頓時，我這證券管理系統獎勵農村裝置成就第一章我在，可以用收入總體我在，分類無比，協會西安接受事項引擎成立指導分別，往往新技術類似汽車，多種日韓臺灣以便有可能，老人招商傳來演員，首。</p>
+                            <h3>標準型</h3>
+                            <p>說與出處也就是分公司是個以往內容俱樂部以為研究生，保育石虎頓時士兵真正類型好評自行，法人對待一切怎麼會條例硬盤寶寶效益改善的說美元，不用開發者大會，觀看信心首。</p>
                         </div>    
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex align-items-center">
                         <div>
-                            <i class="fa-regular fa-handshake fa-5x me-3 text-danger"></i>
+                            <i class="fa-solid fa-beer-mug-empty fa-5x me-3 text-danger"></i>
                         </div>
                         <div>
-                            <h3>中部</h3>
-                            <p>有時候超市還不這次，對你活力日子除了，新聞幾次格式行動兩人是一種你有將來收集當我她是微軟進去，楠雅。</p>
+                            <h3>PARTY中型</h3>
+                            <p>說什與出處也就是分公司是個以往內容俱樂部以為研究生，保育石虎頓時士兵真正類型好評自行，法人對待一切怎麼會條例硬盤寶寶效益改善的說美元，不用開發者大會，觀看信心首。</p>
                         </div>
                     </div>
                 </div>
@@ -369,21 +523,21 @@
                 <div class="col-md-6">
                     <div class="d-flex align-items-center">
                         <div>
-                            <i class="fa-regular fa-handshake fa-5x me-3 text-danger"></i>
+                            <i class="fa-solid fa-utensils fa-5x me-3 text-danger"></i>
                         </div>
                         <div>
-                            <h3>南部</h3>
-                            <p>身影發佈時間女朋友以下，評論斑竹小孩，吃飯不好意思，一定要。</p>
+                            <h3>PARTY大型</h3>
+                            <p>說與出處也就是分公司是個以往內容俱樂部以為研究生，保育石虎頓時士兵真正類型好評自行，法人對待一切怎麼會條例硬盤寶寶效益改善的說美元，不用開發者大會，觀看信心首。</p>
                         </div>    
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="d-flex align-items-center">
                         <div>
-                            <i class="fa-regular fa-handshake fa-5x me-3 text-danger"></i>
+                            <i class="fa-solid fa-cake-candles fa-5x me-3 text-danger"></i>
                         </div>
                         <div>
-                            <h3>東部</h3>
+                            <h3>總統廳</h3>
                             <p>參與出處也就是分公司是個以往內容俱樂部以為研究生，保育石虎頓時士兵真正類型好評自行，法人對待一切怎麼會條例硬盤寶寶效益改善的說美元，不用開發者大會，觀看信心首。</p>
                         </div>
                     </div>
@@ -392,34 +546,34 @@
         </div>
     </section>
 
-    <!-- section07 品牌價值介紹 搭配圖片 -->
+    <!-- section07 品牌價值介紹 -->
     <section class="my-4" style="position: relative;">
         <div class="container">
             <div class="row">
                 <div class="col-md-7 s07_text">
                     <dl class="row">
-                        <h2>品牌價值介紹</h2>
+                        <h2>公司經營理念</h2>
                         <p>夫人所有人協助對面主席警方金額還會廣泛也可離線優惠頭髮，收益瀏覽參觀紡織求助家族完整推薦，認識具有。</p>
-                        <dt class="col-sm-3">Description lists</dt>
-                        <dd class="col-sm-9">A description list is perfect for defining terms.</dd>
+                        <dt class="col-sm-3">行動熱點哥哥斗內一。</dt>
+                        <dd class="col-sm-9">一件硬體超級無門律師更新大學，上述時間演唱會我家編輯，害怕。</dd>
                         
-                        <dt class="col-sm-3">Term</dt>
+                        <dt class="col-sm-3">你想國內外，她的顯得，各級歷。</dt>
                         <dd class="col-sm-9">
-                            <p>Definition for the term.</p>
-                            <p>And some more placeholder definition text.</p>
+                            <p>感覺還沒客人一年相互代理情況手術熟悉，有時候設施一定可見相對婦女促銷，這款明天，又是運用，表演我都。</p>
+                            <p>現代化我就計算點這裡，打電話意味着抓住。</p>
                         </dd>
                         
-                        <dt class="col-sm-3">Another term</dt>
-                        <dd class="col-sm-9">This definition is short, so no extra paragraphs or anything.</dd>
+                        <dt class="col-sm-3">得分權限考察修改電。</dt>
+                        <dd class="col-sm-9">私服對話相關內容合同好激動學科你會真實現金仔細提問目前為此。</dd>
                         
-                        <dt class="col-sm-3 text-truncate">Truncated term is truncated</dt>
-                        <dd class="col-sm-9">This can be useful when space is tight. Adds an ellipsis at the end.</dd>
+                        <dt class="col-sm-3 text-truncate">台南那就，每年台北總統，不久。</dt>
+                        <dd class="col-sm-9">厲害具備寫出來銷售選項，投資傳說瘋狂天天才會大戰大學分類遭遇表現階段，最低靈魂。</dd>
                         
-                        <dt class="col-sm-3">Nesting</dt>
+                        <dt class="col-sm-3">作戰設施。</dt>
                         <dd class="col-sm-9">
                           <dl class="row">
-                              <dt class="col-sm-4">Nested definition list</dt>
-                              <dd class="col-sm-8">I heard you like definition lists. Let me put a definition list inside your definition list.</dd>
+                              <dt class="col-sm-4">俱樂部抽菸區只有不少一下下載次數聽到，明顯考生奧客，通信仍。</dt>
+                              <dd class="col-sm-8">感到是一種用途，一邊創造配合聽說你的不可以指南一批順利歐洲上路管理系。</dd>
                             </dl>
                         </dd>
                     </dl>
@@ -427,20 +581,25 @@
             </div>
         </div>
         <div class="row justify-content-end">
-            <div class="col-md-5 bg-cover s07_img" style="position: absolute; background-image: url(images/01.jpg); top: 0; bottom: 0;" ></div>
+            <div class="col-md-5 bg-cover s07_img" style="position: absolute; background-image: url(images/02.jpg); top: 0; bottom: 0;" ></div>
         </div>
     </section>
 
-    <!-- section08 地圖 詢問表單 -->
+    <!-- section08 地圖、回饋表單 -->
     <section>
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.867169643114!2d120.6805044823683!3d24.141302535126957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d1491da3bb5%3A0x365aab8ca009e190!2z5Y-w5Lit576O5qiC5ZywS1RW!5e0!3m2!1szh-TW!2stw!4v1692235594921!5m2!1szh-TW!2stw" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3640.867169643114!2d120.6805044823683!3d24.141302535126957!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34693d1491da3bb5%3A0x365aab8ca009e190!2z5Y-w5Lit576O5qiC5ZywS1RW!5e0!3m2!1szh-TW!2stw!4v1692235594921!5m2!1szh-TW!2stw" width="100%" height="620" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
                 <div class="col-md-6">
+                    <h3>顧客意見</h3>
                     <div class="mb-3">
                         <label for="" class="form-label">姓名</label>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <label for="" class="form-label">分店</label>
                         <input type="text" class="form-control">
                     </div>
                     <div class="mb-3">
@@ -451,22 +610,11 @@
                         <label for="" class="form-label">email</label>
                         <input type="email" class="form-control">
                     </div>
-                    <div class="mb-3">
-                        <label for="" class="form-label">人數</label>
-                        <input type="number" class="form-control">
+                    <div>
+                        <label for="textarea1" class="form-label">連絡事項</label>
+                            <textarea class="form-control" id="textarea1" rows="6" ></textarea>
                     </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                        <label class="form-check-label" for="flexRadioDefault1">
-                          素食
-                        </label>
-                      </div>
-                      <div class="form-check">
-                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                        <label class="form-check-label" for="flexRadioDefault2">
-                          非素食
-                        </label>
-                      </div>
+                    
                       <div class="text-end my-3">
                         <a href="#" class="btn btn-secondary">取消</a>
                         <a href="#" class="btn btn-primary">確認</a>
@@ -479,21 +627,21 @@
     <!-- section09 招募人才 -->
     <section>
         <div class="row">
-            <div class="col-md-6 bg-cover" style="background-image: url(images/01.jpg);">
+            <div class="col-md-6 bg-cover" style="background-image: url(images/05.jpg);">
                 <div class="row">
                     <div class="col-md-9 s09_text m-4 p-3">
                         <small class="badge text-bg-danger my-3">加入我們</small>
-                        <h2 class="fw-700">餐飲服務員</h2>
+                        <h2 class="fw-700">廚房廚務人員</h2>
                         <p class="fw-700">在他如果分析角度照片看起來就是執行強烈到處地上其實尊重別的，你沒有不僅物理她們明天也就是，命令加盟因為範圍內大聲動畫一陣我要對象情況，辛苦轎車教授推動做法承諾感覺到穩定，排行起來，室內空調女人，鼓勵。</p>
                         <a href="#" class="btn btn-outline-danger">加入我們</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 bg-cover" style="background-image: url(images/02.jpg);">
+            <div class="col-md-6 bg-cover" style="background-image: url(images/06.jpg);">
                 <div class="row">
                     <div class="col-md-9 s09_text m-4 p-3">
                         <small class="badge text-bg-danger my-3">加入我們</small>
-                        <h2 class="fw-700">營業分析人員</h2>
+                        <h2 class="fw-700">外場服務人員</h2>
                         <p class="fw-700">在他如果分析角度照片看起來就是執行強烈到處地上其實尊重別的，你沒有不僅物理她們明天也就是，命令加盟因為範圍內大聲動畫一陣我要對象情況，辛苦轎車教授推動做法承諾感覺到穩定，排行起來，室內空調女人，鼓勵。</p>
                         <a href="#" class="btn btn-outline-danger">加入我們</a>
                     </div>
@@ -502,7 +650,7 @@
         </div>
     </section>
 
-    <!-- section10 版權宣告 友站連結 -->
+    <!-- section10 版權宣告、友站連結 -->
     <section>
         <div class="container">
             <ul class="nav">
@@ -522,9 +670,37 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/counterup2@2.0.2/dist/index.js">	</script>
+    <script>
+        const counterUp = window.counterUp.default
+
+        const callback = entries => {
+            entries.forEach( entry => {
+                const el = entry.target
+                if ( entry.isIntersecting && ! el.classList.contains( 'is-visible' ) ) {
+                    counterUp( el, {
+                        duration: 1000,
+                        delay: 16,
+                    } )
+                    el.classList.add( 'is-visible' )
+                }
+            } )
+        }
+
+        const IO = new IntersectionObserver( callback, { threshold: 1 } )
+
+        // JAVASCRIPT語法搜尋到第一個.counter後執行並結束,其他的.counter不會去執行,所以要另外設定新的class
+        const el01 = document.querySelector( '.counter01' )
+        IO.observe( el01 )
+
+        const el02 = document.querySelector( '.counter02' )
+        IO.observe( el02 )
+
+        const el03 = document.querySelector( '.counter03' )
+        IO.observe( el03 )
+    </script>
+
 </body>
 
 </html>
